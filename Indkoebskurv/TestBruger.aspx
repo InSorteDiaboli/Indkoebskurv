@@ -14,6 +14,7 @@
             <asp:Button ID="btn_slet" runat="server" Text="Slet" OnClick="btn_slet_Click" />
             <asp:Button ID="btn_reload" runat="server" Text="Reload" />
             <asp:Label ID="lbl_name" runat="server" Text=""> </asp:Label>
+            <label></label>
         </div>
     </form>
 </body>
