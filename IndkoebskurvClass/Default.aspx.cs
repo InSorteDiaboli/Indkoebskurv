@@ -43,7 +43,6 @@ namespace Indkoebskurv
                 {
                     newProduct = false;
                     product.Amount += Convert.ToInt32(tb_amount.Text);
-                    product.TotalPrice = product.Amount * product.Price;
                     //update
                 }
             }
@@ -75,7 +74,8 @@ namespace Indkoebskurv
             if(Session["Cart"] != null)
             {
                 Session.Remove("Cart");
-                //Response.Redirect("Default.aspx");
+                
+                
             }
 
         }
