@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP-opgaver", "Indkoebskurv\OOP-opgaver.csproj", "{731E0756-3E3B-4E7D-9AC1-F24F5FC6B05A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndkoebskurvClass", "IndkoebskurvClass\IndkoebskurvClass.csproj", "{1F2E0E27-D1D5-45AD-A06A-B6D87D8D1A7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{731E0756-3E3B-4E7D-9AC1-F24F5FC6B05A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{731E0756-3E3B-4E7D-9AC1-F24F5FC6B05A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{731E0756-3E3B-4E7D-9AC1-F24F5FC6B05A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F2E0E27-D1D5-45AD-A06A-B6D87D8D1A7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F2E0E27-D1D5-45AD-A06A-B6D87D8D1A7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F2E0E27-D1D5-45AD-A06A-B6D87D8D1A7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F2E0E27-D1D5-45AD-A06A-B6D87D8D1A7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
