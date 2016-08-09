@@ -33,9 +33,11 @@
                 <tr>
                     <td colspan="2">
                         <asp:Button ID="Btn_submit" runat="server" Text="Put i kurv" OnClick="Btn_submit_Click" />
+                        <asp:Button ID="Btn_empty" runat="server" Text="Tøm kurv" OnClick="Btn_empty_Click" />
                     </td>
                 </tr>
             </table>
+            <asp:GridView ID="gv_cart" runat="server"></asp:GridView>
         </div>
     </form>
 </body>

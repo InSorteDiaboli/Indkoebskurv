@@ -37,6 +37,7 @@ namespace Indkoebskurv
             this.name = name;
             this.price = price;
             this.amount = amount;
+            this.totalPrice = this.price * this.amount;
         }
 
         #endregion
