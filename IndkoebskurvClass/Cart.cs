@@ -32,7 +32,7 @@ namespace Indkoebskurv
             return cart;
         }
 
-        private void AddToCart(int id, string name, decimal price, int amount)
+        public void AddToCart(int id, string name, decimal price, int amount)
         {
             bool newProduct = true;
 
@@ -49,6 +49,17 @@ namespace Indkoebskurv
             {
                 this.items.Add(new CartProduct
                     (id, name, price, amount));
+            }
+        }
+
+        public void RemoveCart() 
+        {
+            if (HttpContext.Current.Session["Cart"] != null)
+            {
+                HttpContext.Current.Session.Remove("Cart");
+                this.items = new List<CartProduct>();
+
+
             }
         }
 
