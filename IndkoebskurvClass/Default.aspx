@@ -1,5 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Indkoebskurv.Default" %>
 
+<%@ Register Src="~/CartView.ascx" TagPrefix="uc1" TagName="CartView" %>
+
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -13,22 +16,22 @@
                 <tr>
                     <td>Id</td>
                     <td>
-                        <asp:TextBox ID="tb_id" runat="server"></asp:TextBox><asp:RequiredFieldValidator ErrorMessage="Write an id" ControlToValidate="tb_id" runat="server" /></td>
+                        <asp:TextBox ID="tb_id" runat="server"></asp:TextBox><%--<asp:RequiredFieldValidator ErrorMessage="Write an id" ControlToValidate="tb_id" runat="server" />--%></td>
                 </tr>
                 <tr>
                     <td>Navn</td>
                     <td>
-                        <asp:TextBox ID="tb_name" runat="server"></asp:TextBox><asp:RequiredFieldValidator ErrorMessage="Write a name for the product" ControlToValidate="tb_name" runat="server" /></td>
+                        <asp:TextBox ID="tb_name" runat="server"></asp:TextBox><%--<asp:RequiredFieldValidator ErrorMessage="Write a name for the product" ControlToValidate="tb_name" runat="server" />--%></td>
                 </tr>
                 <tr>
                     <td>Pris</td>
                     <td>
-                        <asp:TextBox ID="tb_price" runat="server"></asp:TextBox><asp:RequiredFieldValidator ErrorMessage="Write a price" ControlToValidate="tb_price" runat="server" /></td>
+                        <asp:TextBox ID="tb_price" runat="server"></asp:TextBox><%--<asp:RequiredFieldValidator ErrorMessage="Write a price" ControlToValidate="tb_price" runat="server" />--%></td>
                 </tr>
                 <tr>
                     <td>Antal</td>
                     <td>
-                        <asp:TextBox ID="tb_amount" runat="server"></asp:TextBox><asp:RequiredFieldValidator ErrorMessage="Write the amount" ControlToValidate="tb_amount" runat="server" /></td>
+                        <asp:TextBox ID="tb_amount" runat="server"></asp:TextBox><%--<asp:RequiredFieldValidator ErrorMessage="Write the amount" ControlToValidate="tb_amount" runat="server" />--%></td>
                 </tr>
                 <tr>
                     <td colspan="2">
@@ -37,7 +40,8 @@
                     </td>
                 </tr>
             </table>
-            <asp:GridView ID="gv_cart" runat="server"></asp:GridView>
+            <uc1:CartView runat="server" ID="CartView_Design" />
+            
         </div>
     </form>
 </body>

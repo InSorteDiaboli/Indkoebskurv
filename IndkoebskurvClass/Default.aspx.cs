@@ -22,26 +22,22 @@ namespace Indkoebskurv
                 Convert.ToInt32(tb_id.Text), 
                 tb_name.Text, 
                 Convert.ToDecimal(tb_price.Text), 
-                Convert.ToInt32(tb_amount.Text)
+                Convert.ToInt32(tb_amount.Text),
+                "~/img/logo.png"
                 );
 
-            ShowCart(cart.Items);
+            CartView_Design.Refresh();
+
+            //ShowCart(cart.Items);
 
             //cart = (List<CartProduct>)Session["Cart"]; <-- anden metode
             //Her putter vi produkter i kurv klassen
         }
 
-        private void ShowCart(List<CartProduct> cart)
-        {
-            gv_cart.DataSource = cart;
-            gv_cart.DataBind();
-        }
-
         protected void Btn_empty_Click(object sender, EventArgs e)
         {
             cart.RemoveCart();
-            ShowCart(cart.Items);
-
+            CartView_Design.Refresh();
         }
     }
 }

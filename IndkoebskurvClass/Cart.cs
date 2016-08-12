@@ -5,14 +5,14 @@ using System.Web;
 
 namespace Indkoebskurv
 {
+    [Serializable]
     public class Cart
     {
-
         private List<CartProduct> items;
 
         public Cart()
         {
-            
+
             this.items = GrabCart();
 
         }
@@ -32,34 +32,103 @@ namespace Indkoebskurv
             return cart;
         }
 
-        public void AddToCart(int id, string name, decimal price, int amount)
+        public void AddToCart(int id, string name, decimal price, int amount, string image)
         {
-            bool newProduct = true;
 
-            foreach (CartProduct product in this.items)
+
+            CartProduct product = findProduct(id);
+            if (product.Id != 0)
             {
-                if (product.Id == id)
-                {
-                    newProduct = false;
-                    product.Amount += amount;
-                }
+                product.Amount += amount;
             }
 
-            if (newProduct)
+            else
             {
                 this.items.Add(new CartProduct
-                    (id, name, price, amount));
+                    (id, name, price, amount, image));
             }
         }
 
-        public void RemoveCart() 
+
+        public void removeProduct(int id)
+        {
+            CartProduct item = findProduct(id);
+
+            if (item.Id != 0)
+            {
+                this.items.Remove(item);
+            }
+        }
+
+        public void RemoveCart()
         {
             if (HttpContext.Current.Session["Cart"] != null)
             {
                 HttpContext.Current.Session.Remove("Cart");
-                this.items = new List<CartProduct>();
 
+            } this.items = new List<CartProduct>();
+        }
 
+        public void SetAmountOnProduct(int id, int newAmount)
+        {
+            CartProduct item = findProduct(id);
+            item.Amount = newAmount;
+
+        }
+
+        public void addAmountOnProduct(int id, int amountToAdd)
+        {
+            CartProduct item = findProduct(id);
+            item.Amount += amountToAdd;
+        }
+
+        public void reduceAmountOnProduct(int id, int amountToReduce)
+        {
+            CartProduct item = findProduct(id);
+            if (item.Amount <= 1)
+            {
+                removeProduct(id);
+            }
+            else
+            {
+                item.Amount -= amountToReduce;
+            }
+        }
+
+        public CartProduct findProduct(int id)
+        {
+            foreach (CartProduct product in this.items)
+            {
+                if (product.Id == id)
+                {
+                    return product;
+                }
+            }
+            return new CartProduct();
+        }
+
+        public decimal vatOnAllProducts
+        {
+            get { 
+                decimal totalVat = 0;
+                foreach (CartProduct product in this.items)
+                {
+                    totalVat += product.Vat;
+                }
+                return totalVat;
+            }
+        }
+
+        public decimal priceOnAllProducts
+        {
+            get
+            {
+                decimal totalPrice = 0;
+                foreach (CartProduct product in this.items)
+                {
+                    totalPrice += product.TotalPrice;
+                }
+                return totalPrice;
             }
         }
 
